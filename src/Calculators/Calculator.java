@@ -13,7 +13,7 @@ import java.io.InputStreamReader;
 import java.util.Scanner;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
-
+import static java.lang.Math.sqrt;
 public class Calculator {
 
 	private JFrame frame;
@@ -45,6 +45,7 @@ public class Calculator {
 	double result;
 	String operations;
 	String answer;
+	private JButton btn_sqr;
 
 
 	/**
@@ -80,8 +81,9 @@ public class Calculator {
 		frame.getContentPane().setLayout(null);
 		
 		tb_display = new JTextField();
+		tb_display.setFont(new Font("Tahoma", Font.BOLD, 16));
 		tb_display.setHorizontalAlignment(SwingConstants.RIGHT);
-		tb_display.setBounds(12, 27, 298, 36);
+		tb_display.setBounds(12, 13, 298, 68);
 		frame.getContentPane().add(tb_display);
 		tb_display.setColumns(10);
 		
@@ -95,7 +97,7 @@ public class Calculator {
 			}
 		});
 		btn_clear.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btn_clear.setBounds(12, 94, 50, 50);
+		btn_clear.setBounds(198, 94, 50, 50);
 		frame.getContentPane().add(btn_clear);
 				
 		btn_square = new JButton("x\u00B2");
@@ -122,7 +124,7 @@ public class Calculator {
 			}
 		});
 		btn_MultiP.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btn_MultiP.setBounds(198, 94, 112, 50);
+		btn_MultiP.setBounds(198, 220, 112, 50);
 		frame.getContentPane().add(btn_MultiP);
 		
 		//--------------------Row 2-------------------------------	
@@ -211,7 +213,7 @@ public class Calculator {
 			}
 		});
 		btn_plus.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btn_plus.setBounds(260, 158, 50, 112);
+		btn_plus.setBounds(200, 345, 110, 50);
 		frame.getContentPane().add(btn_plus);
 		
 		btn_modulo = new JButton("%");
@@ -224,7 +226,7 @@ public class Calculator {
 			}
 		});
 		btn_modulo.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btn_modulo.setBounds(198, 157, 50, 112);
+		btn_modulo.setBounds(12, 94, 50, 50);
 		frame.getContentPane().add(btn_modulo);
 		
 		//--------------------Row 4-------------------------------
@@ -289,7 +291,7 @@ public class Calculator {
 			}
 		});
 		btn_sub.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btn_sub.setBounds(260, 283, 50, 112);
+		btn_sub.setBounds(198, 282, 112, 50);
 		frame.getContentPane().add(btn_sub);
 		
 		btn_division = new JButton("/");
@@ -302,7 +304,7 @@ public class Calculator {
 			}
 		});
 		btn_division.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btn_division.setBounds(198, 283, 50, 112);
+		btn_division.setBounds(198, 156, 112, 50);
 		frame.getContentPane().add(btn_division);
 		
 		btn_priam = new JButton("PR");
@@ -328,8 +330,8 @@ public class Calculator {
 				
 			}
 		});
-		btn_priam.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		btn_priam.setBounds(12, 346, 50, 50);
+		btn_priam.setFont(new Font("Tahoma", Font.BOLD, 16));
+		btn_priam.setBounds(12, 409, 174, 50);
 		frame.getContentPane().add(btn_priam);
 				
 		btn_equal = new JButton("=");
@@ -372,7 +374,7 @@ public class Calculator {
 			}
 		});
 		btn_equal.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btn_equal.setBounds(12, 408, 174, 50);
+		btn_equal.setBounds(198, 408, 112, 50);
 		frame.getContentPane().add(btn_equal);
 		
 		btn_comma = new JButton(".");
@@ -396,8 +398,8 @@ public class Calculator {
 				tb_display.setText(String.valueOf(ops));
 			}
 		});
-		btn_pm.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btn_pm.setBounds(198, 408, 112, 50);
+		btn_pm.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		btn_pm.setBounds(12, 345, 50, 50);
 		frame.getContentPane().add(btn_pm);
 		
 		btn_bs = new JButton("\u2190");
@@ -415,8 +417,21 @@ public class Calculator {
 			}
 		});
 		btn_bs.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btn_bs.setBounds(74, 94, 50, 50);
+		btn_bs.setBounds(260, 94, 50, 50);
 		frame.getContentPane().add(btn_bs);
+		
+		btn_sqr = new JButton("\u221A");
+		btn_sqr.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				firstNumber = Double.parseDouble(tb_display.getText()); 
+				result = Math.sqrt(firstNumber);
+				answer = String.format("%.2f", result);
+				tb_display.setText(answer);
+			}
+		});
+		btn_sqr.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btn_sqr.setBounds(74, 94, 50, 50);
+		frame.getContentPane().add(btn_sqr);
 
 	}
 }
