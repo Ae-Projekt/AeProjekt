@@ -62,6 +62,7 @@ public class Calculator {
 				}
 			}
 		});
+//		Binary binaryCalc = new Binary(12);
 	}
 
 	/**
@@ -337,34 +338,34 @@ public class Calculator {
 		btn_equal = new JButton("=");
 		btn_equal.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//--------------------The Operations-------------------------------				
+							
 				String answer;
-				//--------------------Addition -------------------------------
+				
 				secondNumber = Double.parseDouble(tb_display.getText());
 				if(operations == "+") {
 					result = firstNumber + secondNumber;
 					answer = String.format("%.2f", result);
 					tb_display.setText(answer);
 				}
-				//--------------------subtraction -------------------------------
+				
 				else if(operations == "-") {
 					result = firstNumber - secondNumber;
 					answer = String.format("%.2f", result);
 					tb_display.setText(answer);
 				}
-				//--------------------multiplication  -------------------------------
+				
 				else if(operations == "*") {
 					result = firstNumber * secondNumber;
 					answer = String.format("%.2f", result);
 					tb_display.setText(answer);
 				}
-				//--------------------division  -------------------------------
+				
 				else if(operations == "/") {
 					result = firstNumber / secondNumber;
 					answer = String.format("%.2f", result);
 					tb_display.setText(answer);
 				}
-				//--------------------Modulo -------------------------------
+				
 				else if(operations == "%") {
 					result = firstNumber % secondNumber;
 					answer = String.format("%.2f", result);
